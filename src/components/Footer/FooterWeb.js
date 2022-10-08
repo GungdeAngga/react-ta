@@ -21,7 +21,7 @@ export default function FooterWeb() {
   return (
     <div style={style.footer}>
         <div style={style.footerContent}>
-            <div className='btn-group' style={{width: "100%",}}>
+            <div className='btn-group-footer' style={{width: "100%",}}>
 
                 <Link to="/" className='btn' >
                     <img src='./assets/home-free-icon-font.png' alt="home" style={{width: "21.5%", marginTop: "20px", paddingLeft: "80px",}}/>
