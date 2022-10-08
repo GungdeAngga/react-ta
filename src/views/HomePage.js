@@ -1,7 +1,8 @@
 import React from 'react'
+import HeaderWeb from '../components/HeaderWeb'
 
 export default function HomePage() {
   return (
-    <div>HomePage</div>
+    <HeaderWeb/>
   )
 }
