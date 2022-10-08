@@ -11,7 +11,8 @@ import { Link } from 'react-router-dom'
         headerConten:{
             display: "flex",
             paddingTop: "50px",
-            paddingLeft: "33.5%",
+            width: "600px",
+            margin: "auto",
         },
         headerText:{
             fontSize: "32px",
@@ -21,7 +22,7 @@ import { Link } from 'react-router-dom'
             border: "none",
             width: "40px",
             height: "40px",
-            marginLeft: "36.6%",
+            marginLeft: "76%",
         }
     }
 
