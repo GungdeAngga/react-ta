@@ -31,7 +31,7 @@ export default function HeaderWeb() {
   return (
     <div style={style.header}>
         <div style={style.headerConten}>
-            <span style={style.headerText}>Corsair</span>
+            <span style={style.headerText}><strong>Corsair</strong></span>
 
         <Link to="/" style={style.button} >
             <img src='./assets/interrogation-free-icon-font.png' alt="support" style={{width: "100%",}}/>
