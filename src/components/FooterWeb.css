@@ -1,0 +1,37 @@
+.caption {
+    display: block;
+    padding-top: 5px;
+}
+
+.btn{
+    background-color: transparent;
+    height: 113px;
+    width: 200px;
+    
+}
+
+.btn-group {
+    margin-top: 3px;    
+    background-color: #222324; /* black background */
+    color: white; /* White text */
+    padding: 0px 0px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    display: flex;
+    margin-left: -9px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group :not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group :hover {
+    background-color: #030506;
+}
