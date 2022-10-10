@@ -1,24 +1,24 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const style = {
-  MainContent:{
+  MainContent: {
     height: "100%",
     display: "flex",
     backgroundColor: "#484848",
     minHeight: "100vh",
   },
-  Content:{
+  Content: {
     background: "#2C2D30",
     margin: "auto",
     marginTop: "150px",
     padding: "30px 30px 30px 30px",
     width: "540px",
   },
-    text:{
+  text: {
     fontSize: "20px",
   },
-    balance:{
+  balance: {
     fontSize: "30px",
   },
   input: {
@@ -32,36 +32,36 @@ const style = {
     background: "#D9D9D9",
     fontSize: "20px",
   },
-  button:{
-    backgroundColor: "#4E45CE", 
-    width: "185px", 
-    height: "55px", 
-    marginLeft: "33%", 
-    color: "white", 
+  button: {
+    backgroundColor: "#4E45CE",
+    width: "185px",
+    height: "55px",
+    marginLeft: "33%",
+    color: "white",
     borderRadius: "5px",
     cursor: "pointer",
   },
-  goToRegis:{
+  goToRegis: {
     marginLeft: "37%",
   }
 }
 
 export default function LoginWeb() {
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
   return (
     <div style={style.MainContent}>
-        <div style={style.Content}>
+      <div style={style.Content}>
 
-        <input style={style.input} placeholder="username" value={username} name="username" onChange={(e) => setUsername(e.target.value)}/>
-        <input style={style.input} placeholder="password" value={password} name="password" onChange={(e) => setPassword(e.target.value)}/>
-        <span style={style.goToRegis}>Don't have account?</span><br/>
-        <Link to="/" style={{marginLeft: "41%", color: "#4E44CE",}}> 
-            Register Here
-        </Link><br/><br/>
+        <input style={style.input} placeholder="username" value={username} name="username" onChange={(e) => setUsername(e.target.value)} />
+        <input style={style.input} placeholder="password" value={password} name="password" onChange={(e) => setPassword(e.target.value)} />
+        <span style={style.goToRegis}>Don't have account?</span><br />
+        <Link to="/" style={{ marginLeft: "41%", color: "#4E44CE", }}>
+          Register Here
+        </Link><br /><br />
 
         <button style={style.button} type='submit'>LOGIN</button>
-        </div>
+      </div>
     </div>
   )
 }
