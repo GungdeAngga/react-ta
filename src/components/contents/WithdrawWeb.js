@@ -42,17 +42,17 @@ const style = {
   },
 }
 
-export default function TopupWeb() {
-    const [topup, setTopup] = useState("")
+export default function WithdrawWeb() {
+    const [withdraw, setWithdraw] = useState("")
   return (
     <div style={style.MainContent}>
         <div style={style.Content}>
-        <span style={style.text}>Topup</span><br/> 
+        <span style={style.text}>Withdraw</span><br/> 
         <span style={style.balance}>Cash: Rp 1.000.000</span><br/>
 
-        <input style={style.input} placeholder="Rp 0" value={topup} name="topup" onChange={(e) => setTopup(e.target.value)}/>
+        <input style={style.input} placeholder="Rp 0" value={withdraw} name="withdraw" onChange={(e) => setWithdraw(e.target.value)}/>
 
-        <button style={style.button} type='submit'>TOPUP</button>
+        <button style={style.button} type='submit'>WITHDRAW</button>
         </div>
     </div>
   )
