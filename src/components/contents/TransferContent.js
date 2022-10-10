@@ -5,6 +5,7 @@ const style = {
     height: "100%",
     display: "flex",
     backgroundColor: "#484848",
+    minHeight: "100vh",
   },
   Content:{
     background: "#2C2D30",
@@ -12,7 +13,6 @@ const style = {
     padding: "30px",
     paddingTop: "180px",
     width: "540px",
-    minHeight: "69vh",
   },
     text:{
     fontSize: "20px",
