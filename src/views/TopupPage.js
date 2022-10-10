@@ -1,7 +1,8 @@
 import React from 'react'
+import TopupWeb from '../components/contents/TopupWeb'
 import FooterWeb from '../components/Footer/FooterWeb'
 import HeaderWeb from '../components/HeaderWeb'
-import TopupWeb from '../components/TopupWeb'
+
 
 
 export default function TopupPage() {

@@ -1,4 +1,3 @@
-import { hover } from '@testing-library/user-event/dist/hover'
 import React,{useState} from 'react'
 
 
@@ -24,15 +23,14 @@ const style = {
   },
   input: {
     width: "100%",
-    padding: "35px 20px",
-    margin: "8px 0",
+    padding: "30px 20px",
+    margin: "15px 0 30px",
     display: "inline-block",
     border: "1px solid #ccc:",
     borderRadius: "1px",
     boxSizing: "border-box",
     background: "#D9D9D9",
     fontSize: "40px",
-    marginBottom: "20px",
   },
   button:{
     backgroundColor: "#4E45CE", 

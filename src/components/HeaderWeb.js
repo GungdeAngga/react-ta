@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
         header:{
             background: "#4E44CE",
             width: "100%",
-            height: "140px",
+            height: "120px",
             position: "absolute",
         },
         headerConten:{
             display: "flex",
-            paddingTop: "50px",
+            paddingTop: "35px",
             width: "600px",
             margin: "auto",
         },
