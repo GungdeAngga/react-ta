@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./MainContentWeb.css"
-import "../../App.css"
 
 const style = {
   MainContent:{
@@ -23,6 +22,11 @@ const style = {
   balance:{
     fontSize: "40px",
   },
+  button:{
+    width: "21.5%", 
+    marginTop: "20px", 
+    paddingLeft: "71px",
+  }
 }
 
 export default function MainContent() {
@@ -34,17 +38,17 @@ export default function MainContent() {
 
           <div className='btn-group' style={{width: "100%",}}>
             <Link to="/TopupPage" className='btn' >
-              <img src='./assets/add-free-icon-font.png' alt="topup" style={{width: "21.5%", marginTop: "20px", paddingLeft: "71px",}}/>
+              <img src='./assets/add-free-icon-font.png' alt="topup" style={style.button}/>
               <span className='caption' style={{paddingLeft: "69px",}}>topup</span>
             </Link>
 
             <Link to="/TransferPage" className='btn' >
-              <img src='./assets/paper-plane-free-icon-font.png' alt="transfer" style={{width: "21.5%", marginTop: "20px", paddingLeft: "71px",}}/>
+              <img src='./assets/paper-plane-free-icon-font.png' alt="transfer" style={style.button}/>
               <span className='caption' style={{paddingLeft: "61px",}}>transfer</span>
             </Link>
 
             <Link to="/WithdrawPage" className='btn' >
-                <img src='./assets/money-bill-wave-free-icon-font.png' alt="Withdraw" style={{width: "21.5%", marginTop: "20px", paddingLeft: "71px",}}/>
+                <img src='./assets/money-bill-wave-free-icon-font.png' alt="Withdraw" style={style.button}/>
                 <span className='caption' style={{paddingLeft: "56px",}}>Withdraw</span>
             </Link>
           </div>

@@ -15,6 +15,11 @@ const style = {
         margin: "auto",
         width: "600px",
     },
+    Button:{
+        width: "21.5%", 
+        marginTop: "20px", 
+        paddingLeft: "80px",
+    }
 }
 
 export default function FooterWeb() {
@@ -24,17 +29,17 @@ export default function FooterWeb() {
             <div className='btn-group-footer' style={{width: "100%",}}>
 
                 <Link to="/" className='btn' >
-                    <img src='./assets/home-free-icon-font.png' alt="home" style={{width: "21.5%", marginTop: "20px", paddingLeft: "80px",}}/>
+                    <img src='./assets/home-free-icon-font.png' alt="home" style={style.Button}/>
                     <span className='caption' style={{paddingLeft: "80px",}}>Home</span>
                 </Link>
 
                 <Link to="/" className='btn' >
-                    <img src='./assets/time-past-free-icon-font.png' alt="History" style={{width: "21.5%", marginTop: "20px", paddingLeft: "80px",}}/>
+                    <img src='./assets/time-past-free-icon-font.png' alt="History" style={style.Button}/>
                     <span className='caption' style={{paddingLeft: "75px",}}>History</span>
                 </Link>
 
                 <Link to="/" className='btn' >
-                    <img src='./assets/portrait-free-icon-font.png' alt="Account" style={{width: "21.5%", marginTop: "20px", paddingLeft: "80px",}}/>
+                    <img src='./assets/portrait-free-icon-font.png' alt="Account" style={style.Button}/>
                     <span className='caption' style={{paddingLeft: "72px",}}>Account</span>
                 </Link>
 
