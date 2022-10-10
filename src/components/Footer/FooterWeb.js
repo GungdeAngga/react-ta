@@ -30,17 +30,17 @@ export default function FooterWeb() {
 
                     <Link to="/" className='btn' >
                         <img src='./assets/home-free-icon-font.png' alt="home" style={style.Button} />
-                        <span className='caption' style={{ paddingLeft: "80px", }}>Home</span>
+                        <span className='caption' style={{ paddingLeft: "77px", }}>Home</span>
                     </Link>
 
                     <Link to="/" className='btn' >
                         <img src='./assets/time-past-free-icon-font.png' alt="History" style={style.Button} />
-                        <span className='caption' style={{ paddingLeft: "75px", }}>History</span>
+                        <span className='caption' style={{ paddingLeft: "73px", }}>History</span>
                     </Link>
 
                     <Link to="/" className='btn' >
                         <img src='./assets/portrait-free-icon-font.png' alt="Account" style={style.Button} />
-                        <span className='caption' style={{ paddingLeft: "72px", }}>Account</span>
+                        <span className='caption' style={{ paddingLeft: "69px", }}>Account</span>
                     </Link>
 
                 </div>
