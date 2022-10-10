@@ -1,12 +1,14 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
+import { useQuery } from '@apollo/client';
+import { GET_BALANCE } from '../../graphQL/apolloQuery';
 
 const style = {
-  MainContent:{
+  MainContent: {
     height: "100%",
     display: "flex",
     backgroundColor: "#484848",
   },
-  Content:{
+  Content: {
     background: "#2C2D30",
     margin: "auto",
     padding: "30px",
@@ -14,10 +16,10 @@ const style = {
     width: "540px",
     minHeight: "69vh",
   },
-    text:{
+  text: {
     fontSize: "20px",
   },
-    balance:{
+  balance: {
     fontSize: "30px",
   },
   input: {
@@ -31,29 +33,38 @@ const style = {
     background: "#D9D9D9",
     fontSize: "40px",
   },
-  button:{
-    backgroundColor: "#4E45CE", 
-    width: "185px", 
-    height: "55px", 
-    marginLeft: "33%", 
-    color: "white", 
+  button: {
+    backgroundColor: "#4E45CE",
+    width: "185px",
+    height: "55px",
+    marginLeft: "33%",
+    color: "white",
     borderRadius: "5px",
     cursor: "pointer",
   },
 }
 
 export default function TopupWeb() {
-    const [topup, setTopup] = useState("")
+  const [topup, setTopup] = useState("")
+  const { loading, error, data } = useQuery(GET_BALANCE);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    alert("Error");
+    return null;
+  }
   return (
     <div style={style.MainContent}>
-        <div style={style.Content}>
-        <span style={style.text}>Topup</span><br/> 
-        <span style={style.balance}>Cash: Rp 1.000.000</span><br/>
+      <div style={style.Content}>
+        <span style={style.text}>Topup</span><br />
+        <span style={style.balance}>{"Cash: Rp." + data.table_account_balance_by_pk.uang}</span><br />
 
-        <input style={style.input} placeholder="Rp 0" value={topup} name="topup" onChange={(e) => setTopup(e.target.value)}/>
+        <input style={style.input} placeholder="Rp 0" value={topup} name="topup" onChange={(e) => setTopup(e.target.value)} />
 
         <button style={style.button} type='submit'>TOPUP</button>
-        </div>
+      </div>
     </div>
   )
 }
