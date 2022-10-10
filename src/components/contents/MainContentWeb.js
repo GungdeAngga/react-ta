@@ -43,7 +43,7 @@ export default function MainContent() {
               <span className='caption' style={{paddingLeft: "61px",}}>transfer</span>
             </Link>
 
-            <Link to="/" className='btn' >
+            <Link to="/WithdrawPage" className='btn' >
                 <img src='./assets/money-bill-wave-free-icon-font.png' alt="Withdraw" style={{width: "21.5%", marginTop: "20px", paddingLeft: "71px",}}/>
                 <span className='caption' style={{paddingLeft: "56px",}}>Withdraw</span>
             </Link>
