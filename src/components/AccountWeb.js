@@ -26,8 +26,15 @@ const style = {
   },
   menuText:{
     color: "black",
-    
-  }
+  },
+  button: {
+    backgroundColor: "darkred",
+    padding: "20px",
+    marginLeft: "41%",
+    color: "white",
+    borderRadius: "5px",
+    cursor: "pointer",
+  },
 }
 
 export default function AccountWeb() {
@@ -38,8 +45,13 @@ export default function AccountWeb() {
         {/* diatas pake sesuai nama pengguna */}
         <Link to="/" style={style.menu}>
             <span style={style.menuText}>Ubah Nama</span>
-        </Link>
+        </Link><br/>
 
+        <Link to="/" style={style.menu}>
+            <span style={style.menuText}>Ubah Password</span>
+        </Link><br/><br/>
+
+        <Link to="/LoginPage" style={style.button}>LogOut</Link>
       </div>
     </div>
   )
