@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css"
+import AccountPage from "./views/AccountPage";
 import HomePage from "./views/HomePage";
 import LoginPage from "./views/LoginPage";
 import RegisterPage from "./views/RegisterPage";
@@ -17,6 +18,7 @@ function App() {
         <Route path="/WithdrawPage" element={<WithdrawPage />} />
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/RegisterPage" element={<RegisterPage />} />
+        <Route path="/AccountPage" element={<AccountPage />} />
       </Routes>
     </BrowserRouter>
   );

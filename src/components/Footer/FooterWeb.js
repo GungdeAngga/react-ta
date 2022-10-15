@@ -38,7 +38,7 @@ export default function FooterWeb() {
                         <span className='caption' style={{ paddingLeft: "73px", }}>History</span>
                     </Link>
 
-                    <Link to="/" className='btn' >
+                    <Link to="/AccountPage" className='btn' >
                         <img src='./assets/portrait-free-icon-font.png' alt="Account" style={style.Button} />
                         <span className='caption' style={{ paddingLeft: "69px", }}>Account</span>
                     </Link>
