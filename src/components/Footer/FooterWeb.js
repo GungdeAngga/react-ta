@@ -28,17 +28,17 @@ export default function FooterWeb() {
             <div style={style.footerContent}>
                 <div className='btn-group-footer' style={{ width: "100%", }}>
 
-                    <Link to="/" className='btn' >
+                    <Link to="/" className='btn1' >
                         <img src='./assets/home-free-icon-font.png' alt="home" style={style.Button} />
                         <span className='caption' style={{ paddingLeft: "77px", }}>Home</span>
                     </Link>
 
-                    <Link to="/" className='btn' >
+                    <Link to="/" className='btn1' >
                         <img src='./assets/time-past-free-icon-font.png' alt="History" style={style.Button} />
                         <span className='caption' style={{ paddingLeft: "73px", }}>History</span>
                     </Link>
 
-                    <Link to="/AccountPage" className='btn' >
+                    <Link to="/AccountPage" className='btn1' >
                         <img src='./assets/portrait-free-icon-font.png' alt="Account" style={style.Button} />
                         <span className='caption' style={{ paddingLeft: "69px", }}>Account</span>
                     </Link>

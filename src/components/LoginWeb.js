@@ -34,9 +34,8 @@ const style = {
   },
   button: {
     backgroundColor: "#4E45CE",
-    width: "185px",
-    height: "55px",
-    marginLeft: "33%",
+    padding: "20px 40px 20px 40px",
+    marginLeft: "38.5%",
     color: "white",
     borderRadius: "5px",
     cursor: "pointer",
@@ -58,9 +57,9 @@ export default function LoginWeb() {
         <span style={style.goToRegis}>Don't have account?</span><br />
         <Link to="/RegisterPage" style={{ marginLeft: "41%", color: "#4E44CE", }}>
           Register Here
-        </Link><br /><br />
+        </Link><br /><br /><br/>
 
-        <button style={style.button} type='submit'>LOGIN</button>
+        <Link to="/" style={style.button} type='submit'>LOGIN</Link>
       </div>
     </div>
   )
