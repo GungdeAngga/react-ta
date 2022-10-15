@@ -46,21 +46,23 @@ const style = {
   }
 }
 
-export default function LoginWeb() {
+export default function RegisterWeb() {
   const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   return (
     <div style={style.MainContent}>
       <div style={style.Content}>
 
         <input style={style.input} placeholder="username" value={username} name="username" onChange={(e) => setUsername(e.target.value)} />
+        <input style={style.input} placeholder="email" value={email} name="email" onChange={(e) => setEmail(e.target.value)} />
         <input style={style.input} placeholder="password" value={password} name="password" onChange={(e) => setPassword(e.target.value)} />
-        <span style={style.goToRegis}>Don't have account?</span><br />
-        <Link to="/RegisterPage" style={{ marginLeft: "41%", color: "#4E44CE", }}>
-          Register Here
+        <span style={style.goToRegis}>Already have account?</span><br />
+        <Link to="/LoginPage" style={{ marginLeft: "45%", color: "#4E44CE", }}>
+          Login Here
         </Link><br /><br />
 
-        <button style={style.button} type='submit'>LOGIN</button>
+        <button style={style.button} type='submit'>REGISTER</button>
       </div>
     </div>
   )
