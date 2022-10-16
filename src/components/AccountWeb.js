@@ -35,17 +35,14 @@ const style = {
     borderRadius: "5px",
     cursor: "pointer",
   },
-  accID: {
-    marginLeft: "360px",
-  },
 }
 
 export default function AccountWeb() {
   return (
     <div style={style.AccountWeb}>
       <div style={style.Content}>
-        <span style={style.text}>Shadov</span>
-        <span style={style.accID}>Id: 001</span><br/><br /> 
+        <span style={style.text}>Shadov</span><br/>
+        <span>Id: 08123456789</span><br/><br /> 
 
         {/* diatas pake sesuai nama pengguna dan id pengguna untuk di add */}
 

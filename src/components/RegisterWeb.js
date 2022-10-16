@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import "../App.css"
 
 const style = {
   MainContent: {
@@ -60,6 +61,7 @@ export default function RegisterWeb() {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [phone, setPhone] = useState("")
 
   const [show, setShow] = useState(false);
 
@@ -73,6 +75,7 @@ export default function RegisterWeb() {
 
         <input style={style.input} placeholder="username" value={username} name="username" onChange={(e) => setUsername(e.target.value)} />
         <input style={style.input} placeholder="email" value={email} name="email" onChange={(e) => setEmail(e.target.value)} />
+        <input type="number" style={style.input} placeholder="phone" value={phone} name="phone" onChange={(e) => setPhone(e.target.value)} />
         <div style={style.pass}>
         <input style={style.input} type={show? 'text': 'password'} placeholder="password" value={password} name="password" onChange={(e) => setPassword(e.target.value)} />
         <div onClick={handleShowPassword} style={style.icon}>
