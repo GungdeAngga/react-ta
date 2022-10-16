@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../../App.css"
 
 const style = {
   MainContent: {
@@ -51,7 +52,7 @@ export default function TransferWeb() {
         <span style={style.text}>Transfer</span><br />
         <span style={style.balance}>Cash: Rp 1.000.000</span><br />
 
-        <input style={style.input} placeholder="Rp 0" value={transfer} name="transfer" onChange={(e) => setTransfer(e.target.value)} />
+        <input type="number" style={style.input} placeholder="Rp 0" value={transfer} name="transfer" onChange={(e) => setTransfer(e.target.value)} />
 
         <button style={style.button} type='submit'>TRANSFER</button>
       </div>

@@ -92,10 +92,9 @@ export default function HistoryWeb() {
         <div style={style.Content}>
 
         <span style={style.list}>History</span>
-        <div><br/></div>
 
         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-        <TableContainer sx={{ maxHeight: 440, background: '#D9D9D9' }}>
+        <TableContainer sx={{ maxHeight: 590, background: '#D9D9D9' }}>
             <Table stickyHeader aria-label="sticky table">
             <TableHead>
                 <TableRow>
