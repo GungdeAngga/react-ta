@@ -49,7 +49,7 @@ export default function AccountWeb() {
 
         {/* diatas pake sesuai nama pengguna dan id pengguna untuk di add */}
 
-        <Link to="/" style={style.menu}>
+        <Link to="/ChangeNamePage" style={style.menu}>
             <span style={style.menuText}>Ubah Nama</span>
         </Link><br/>
 
