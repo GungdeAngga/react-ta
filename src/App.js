@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css"
 import AccountPage from "./views/AccountPage";
 import AdminPage from "./views/AdminPage";
+import ChangeNamePage from "./views/ChangeNamePage";
 import HistoryPage from "./views/HistoryPage";
 import HomePage from "./views/HomePage";
 import LoginPage from "./views/LoginPage";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/AccountPage" element={<AccountPage />} />
         <Route path="/HistoryPage" element={<HistoryPage />} />
         <Route path="/AdminPage" element={<AdminPage />} />
+        <Route path="/Changenamepage" element={<ChangeNamePage />} />
       </Routes>
     </BrowserRouter>
   );
