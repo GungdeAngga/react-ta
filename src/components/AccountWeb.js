@@ -53,7 +53,7 @@ export default function AccountWeb() {
             <span style={style.menuText}>Ubah Nama</span>
         </Link><br/>
 
-        <Link to="/" style={style.menu}>
+        <Link to="/ChangePasswordPage" style={style.menu}>
             <span style={style.menuText}>Ubah Password</span>
         </Link><br/><br/>
 
