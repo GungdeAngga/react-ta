@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const style = {
     MainContent: {
@@ -17,9 +19,10 @@ const style = {
       height: "680px",
     },
     menu:{
-        padding: "20px",
-        background: "#D9D9D9",
-        display: "flex",
+      padding: "30px",
+      background: "#D9D9D9",
+      display: "flex",
+      fontSize: "20px",
     },
     menuText:{
         color: "black",
@@ -33,12 +36,21 @@ export default function FriendContent() {
     <div style={style.MainContent}>
         <div style={style.Content}>
         <span style={style.text}>Tujuan Transfer</span><br/><br/>
-        <Link to="/" style={style.menu}>
-            <span style={style.menuText}>Cari Teman</span>
-        </Link><br/>
-        <Link to="/" style={style.menu}>
-            <span style={style.menuText}>Teman Saya</span>
-        </Link><br/>
+
+        <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '97%', background: '#D9D9D9' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+            <TextField id="filled-basic" label="Tujuan Transfer by ID" variant="filled" />
+        </Box><br/>
+
+        <Link to="/TransferPage" style={style.menu}>
+            <span style={style.menuText}>Angga</span>
+        </Link>
         </div>
     </div>
   )
