@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css"
 import AccountPage from "./views/AccountPage";
+import AdminHashPage from "./views/AdminHashPage";
 import AdminPage from "./views/AdminPage";
 import ChangeNamePage from "./views/ChangeNamePage";
 import ChangePasswordPage from "./views/ChangePasswordPage";
@@ -12,6 +13,7 @@ import RegisterPage from "./views/RegisterPage";
 import TopupPage from "./views/TopupPage";
 import TransferPage from "./views/TransferPage";
 import WithdrawPage from "./views/WithdrawPage";
+
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
         <Route path="/ChangeNamePage" element={<ChangeNamePage />} />
         <Route path="/ChangePasswordPage" element={<ChangePasswordPage />} />
         <Route path="/FriendContent" element={<FriendPage />} />
+        <Route path="/AdminHashPage" element={<AdminHashPage />} />
       </Routes>
     </BrowserRouter>
   );

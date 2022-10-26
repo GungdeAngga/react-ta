@@ -48,7 +48,7 @@ export default function ChangPasswordWeb() {
         <div style={style.Content}>
         
         <Link to="/AccountPage" >
-        <span style={{}}>Back</span><br/>
+        <span>Back</span><br/>
         </Link>
         
         <span style={style.text}>Ganti password</span>
