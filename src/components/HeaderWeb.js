@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
     const style = {
         header:{
@@ -33,10 +32,6 @@ export default function HeaderWeb() {
         <div style={style.headerConten}>
             <span style={style.headerText}><strong>Corsair</strong></span>
 
-        <Link to="/" style={style.button} >
-            <img src='./assets/interrogation-free-icon-font.png' alt="support" style={{width: "100%",}}/>
-        </Link>
-        {/* link to support (to="/support") */}
         </div>
     </div>
   )

@@ -21,7 +21,7 @@ const style = {
       padding: "50px",
       paddingTop: "30px",
       width: "1000px",
-      height: "550px",
+      height: "680px",
     },
     list:{
       fontSize: "30px",
@@ -97,11 +97,11 @@ export default function AdminContent() {
     <div style={style.MainContent}>
       <div style={style.Content}>
 
+        <br/>
         <span style={style.list}>List Activity</span>
-        <div><br/></div>
 
         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-        <TableContainer sx={{ maxHeight: 440, background: '#D9D9D9' }}>
+        <TableContainer sx={{ maxHeight: 590, background: '#D9D9D9' }}>
             <Table stickyHeader aria-label="sticky table">
             <TableHead>
                 <TableRow>
