@@ -29,61 +29,42 @@ const style = {
       margin: "42.5%",
     },
     route:{
-      marginLeft: "-75px",
-    },
+        marginLeft: "-2px",
+      },
 }
 
 const columns = [
-    { id: 'from', 
+    { id: 'hash', 
       label: 'From', 
       minWidth: 170,
       align: 'center', 
     },
 
-    { id: 'to', 
-      label: 'To', 
-      minWidth: 170,
-      align: 'center', 
-    },
-
-    {
-      id: 'amount',
-      label: 'Amount',
-      minWidth: 170,
-      align: 'center',
-    },
-
-    {
-      id: 'time',
-      label: 'Time',
-      minWidth: 170,
-      align: 'center',
-    },
   ];
   
-  function createData(from, to, amount, time) {
-    return { from, to, amount, time };
+  function createData(hash) {
+    return {hash};
   }
   
   const rows = [
-    createData('AtoZ', 'Mercia', 'Rp 1000000', '18.00'),
-    createData('Alegre', 'Shadov', 'Rp 2000000', '19.00'),
-    createData('Angga', 'Aditya', 'Rp 3000000', '20.00'),
-    createData('Ballistic', 'Bender', 'Rp 4000000', '08.00'),
-    createData('Blister', 'Cris', 'Rp 5000000', '09.00'),
-    createData('Bowie', 'Anzi', 'Rp 6000000', '01.00'),
-    createData('Cabbie', 'Deuz', 'Rp 7000000', '02.00'),
-    createData('Irlon', 'Evan', 'Rp 8000000', '03.00'),
-    createData('Mexas', 'Mux', 'Rp 9000000', '04.00'),
-    createData('Jars', 'John', 'Rp 10000000', '05.00'),
-    createData('France', 'freed', 'Rp 20000000','06.00'),
-    createData('Desmon', 'Daemon', 'Rp 30000000','07.00'),
-    createData('Ivan', 'Fritz', 'Rp 40000000', '08.00'),
-    createData('Flack', 'Ning', 'Rp 50000000', '09.00'),
-    createData('Jakku', 'Luna', 'Rp 60000000', '13.00'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
+    createData('xyz'),
   ];
 
-export default function AdminContent() {
+export default function HashAdminTable() {
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -102,9 +83,9 @@ export default function AdminContent() {
       <div style={style.Content}>
 
         <br/>
-        <span style={style.list}>List Activity</span>
-        <Link to="/AdminHashPage" >
-        <span style={style.route}>Hash table</span><br/>
+        <span style={style.list}>Hash List</span>
+        <Link to="/AdminPage" >
+        <span style={style.route}>Back</span><br/>
         </Link>
 
         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -160,3 +141,4 @@ export default function AdminContent() {
     </div>
   )
 }
+
