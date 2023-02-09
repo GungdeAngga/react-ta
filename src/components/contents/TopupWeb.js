@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import "../../App.css"
+import { baseApi } from '../../util/API/API'
+import axios from 'axios'
+import { useEffect } from 'react';
 
 const style = {
   MainContent: {
@@ -45,14 +48,26 @@ const style = {
 }
 
 export default function TopupWeb() {
-  const [topup, setTopup] = useState("")
+  const [topup, setTopup] = useState(0)
+  
+          useEffect(() => {
+            axios
+            .get(baseApi + "account/3")
+            .then((res) => {
+              setTopup(res.data);
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+          });
+
   return (
     <div style={style.MainContent}>
       <div style={style.Content}>
         <span style={style.text}>Topup</span><br />
-        <span style={style.balance}>Cash: Rp 1.000.000</span><br />
+        <span style={style.balance}>{topup.balance}</span><br /> 
 
-        <input type="number" style={style.input} placeholder="Rp 0" value={topup} name="topup" onChange={(e) => setTopup(e.target.value)} />
+        <input type="number" style={style.input} placeholder="Rp 0"  name="topup"  />
 
         <button style={style.button} type='submit'>TOPUP</button>
       </div>
