@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
-import "../../App.css"
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import React, { useEffect, useState } from "react";
+import "../../App.css";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import axios from "axios";
+import { baseApi } from "../../util/API/API";
 
 const style = {
   MainContent: {
@@ -44,32 +46,74 @@ const style = {
     borderRadius: "5px",
     cursor: "pointer",
   },
-}
+};
 
 export default function TransferWeb() {
-  const [transfer, setTransfer] = useState("")
+  const [transfer, setTransfer] = useState("");
+  const [destination, setDestination] = useState(0);
+  const [money, setMoney] = useState(0);
+
+  useEffect(() => {
+    axios.get(baseApi + "account/3").then((res) => {
+      setMoney(res.data.balance);
+    });
+  }, []);
+
+  const handleTransfer = () => {
+    if (destination === 0) {
+      alert("masukan tujuan ID");
+      return;
+    }
+    axios
+      .post(baseApi + "transfer", {
+        from: 3,
+        to: parseInt(destination),
+        amount: parseInt(transfer),
+      })
+      .then((res) => alert("Transaksi Berhasil"))
+      .catch((err) => console.log(err));
+  };
   return (
     <div style={style.MainContent}>
       <div style={style.Content}>
-        <span style={style.text}>Transfer</span><br />
+        <span style={style.text}>Transfer</span>
+        <br />
 
         <Box
           component="form"
           sx={{
-            '& > :not(style)': { m: 1, width: '97%', background: '#D9D9D9' },
+            "& > :not(style)": { m: 1, width: "97%", background: "#D9D9D9" },
           }}
           noValidate
           autoComplete="off"
         >
-            <TextField id="filled-basic" label="Tujuan Transfer by ID" variant="filled" />
-        </Box><br/>
+          <TextField
+            id="filled-basic"
+            label="Tujuan Transfer by ID"
+            variant="filled"
+            type="number"
+            value={destination}
+            onChange={(e) => setDestination(e.target.value)}
+          />
+        </Box>
+        <br />
 
-        <span style={style.balance}>Cash: Rp 1.000.000</span><br />
+        <span style={style.balance}>Cash: {money}</span>
+        <br />
 
-        <input type="number" style={style.input} placeholder="Rp 0" value={transfer} name="transfer" onChange={(e) => setTransfer(e.target.value)} />
+        <input
+          type="number"
+          style={style.input}
+          placeholder="Rp 0"
+          value={transfer}
+          name="transfer"
+          onChange={(e) => setTransfer(e.target.value)}
+        />
 
-        <button style={style.button} type='submit'>TRANSFER</button>
+        <button style={style.button} onClick={handleTransfer}>
+          TRANSFER
+        </button>
       </div>
     </div>
-  )
+  );
 }
