@@ -54,7 +54,7 @@ export default function TransferWeb() {
   const [money, setMoney] = useState(0);
 
   useEffect(() => {
-    axios.get(baseApi + "account/3").then((res) => {
+    axios.get(baseApi + "account/4").then((res) => {
       setMoney(res.data.balance);
     });
   }, []);
@@ -66,7 +66,7 @@ export default function TransferWeb() {
     }
     axios
       .post(baseApi + "transfer", {
-        from: 3,
+        from: 4,
         to: parseInt(destination),
         amount: parseInt(transfer),
       })

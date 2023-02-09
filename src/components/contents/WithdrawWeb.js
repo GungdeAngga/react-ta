@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import "../../App.css"
+import { baseApi } from '../../util/API/API'
+import axios from 'axios'
+import { useEffect } from 'react';
 
 const style = {
   MainContent: {
@@ -45,12 +48,25 @@ const style = {
 }
 
 export default function WithdrawWeb() {
-  const [withdraw, setWithdraw] = useState("")
+
+  const [withdraw, setWithdraw] = useState(0)
+  
+          useEffect(() => {
+            axios
+            .get(baseApi + "account/4")
+            .then((res) => {
+              setWithdraw(res.data);
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+          });
+
   return (
     <div style={style.MainContent}>
       <div style={style.Content}>
         <span style={style.text}>Withdraw</span><br />
-        <span style={style.balance}>Cash: Rp 1.000.000</span><br />
+        <span style={style.balance}>{withdraw.balance}</span><br />
 
         <input type="number" style={style.input} placeholder="Rp 0" value={withdraw} name="withdraw" onChange={(e) => setWithdraw(e.target.value)} />
 

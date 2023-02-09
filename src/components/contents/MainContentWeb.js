@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./MainContentWeb.css"
+import { baseApi } from '../../util/API/API'
+import axios from 'axios'
+import { useEffect } from 'react';
 
 const style = {
   MainContent: {
@@ -31,11 +34,25 @@ const style = {
 }
 
 export default function MainContent() {
+
+  const [home, setHome] = useState(0)
+  
+          useEffect(() => {
+            axios
+            .get(baseApi + "account/4")
+            .then((res) => {
+              setHome(res.data);
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+          });
+
   return (
     <div style={style.MainContent}>
       <div style={style.Content}>
         <span style={style.text}>Account Balance</span><br />
-        <span style={style.balance}>Rp 1.000.000</span>
+        <span style={style.balance}>{home.balance}</span>
 
         <div className='btn-group' style={{ width: "100%", }}>
           <Link to="/TopupPage" className='btn' >
