@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import "../../App.css"
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const style = {
   MainContent: {
@@ -50,6 +52,18 @@ export default function TransferWeb() {
     <div style={style.MainContent}>
       <div style={style.Content}>
         <span style={style.text}>Transfer</span><br />
+
+        <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '97%', background: '#D9D9D9' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+            <TextField id="filled-basic" label="Tujuan Transfer by ID" variant="filled" />
+        </Box><br/>
+
         <span style={style.balance}>Cash: Rp 1.000.000</span><br />
 
         <input type="number" style={style.input} placeholder="Rp 0" value={transfer} name="transfer" onChange={(e) => setTransfer(e.target.value)} />

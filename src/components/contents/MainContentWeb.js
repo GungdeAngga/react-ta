@@ -43,7 +43,7 @@ export default function MainContent() {
             <span className='caption' style={{ paddingLeft: "69px", }}>topup</span>
           </Link>
 
-          <Link to="/FriendContent" className='btn' >
+          <Link to="/TransferPage" className='btn' >
             <img src='./assets/paper-plane-free-icon-font.png' alt="transfer" style={style.button} />
             <span className='caption' style={{ paddingLeft: "61px", }}>transfer</span>
           </Link>

@@ -5,7 +5,6 @@ import AdminHashPage from "./views/AdminHashPage";
 import AdminPage from "./views/AdminPage";
 import ChangeNamePage from "./views/ChangeNamePage";
 import ChangePasswordPage from "./views/ChangePasswordPage";
-import FriendPage from "./views/FriendPage";
 import HistoryPage from "./views/HistoryPage";
 import HomePage from "./views/HomePage";
 import LoginPage from "./views/LoginPage";
@@ -30,7 +29,6 @@ function App() {
         <Route path="/AdminPage" element={<AdminPage />} />
         <Route path="/ChangeNamePage" element={<ChangeNamePage />} />
         <Route path="/ChangePasswordPage" element={<ChangePasswordPage />} />
-        <Route path="/FriendContent" element={<FriendPage />} />
         <Route path="/AdminHashPage" element={<AdminHashPage />} />
       </Routes>
     </BrowserRouter>
