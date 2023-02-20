@@ -49,7 +49,8 @@ const style = {
 
 export default function WithdrawWeb() {
 
-  const [withdraw, setWithdraw] = useState(0)
+  const [withdraw, setWithdraw] = useState(0);
+  const IDRConvert = Intl.NumberFormat("id-ID");
   
           useEffect(() => {
             axios
@@ -66,7 +67,7 @@ export default function WithdrawWeb() {
     <div style={style.MainContent}>
       <div style={style.Content}>
         <span style={style.text}>Withdraw</span><br />
-        <span style={style.balance}>{withdraw.balance}</span><br />
+        <span style={style.balance}>{"Rp " + IDRConvert.format(withdraw.balance)}</span><br />
 
         <input type="number" style={style.input} placeholder="Rp 0" value={withdraw} name="withdraw" onChange={(e) => setWithdraw(e.target.value)} />
 

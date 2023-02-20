@@ -48,7 +48,8 @@ const style = {
 }
 
 export default function TopupWeb() {
-  const [topup, setTopup] = useState(0)
+  const [topup, setTopup] = useState(0);
+  const IDRConvert = Intl.NumberFormat("id-ID");
   
           useEffect(() => {
             axios
@@ -65,7 +66,7 @@ export default function TopupWeb() {
     <div style={style.MainContent}>
       <div style={style.Content}>
         <span style={style.text}>Topup</span><br />
-        <span style={style.balance}>{topup.balance}</span><br /> 
+        <span style={style.balance}>{"Rp " + IDRConvert.format(topup.balance)}</span><br /> 
 
         <input type="number" style={style.input} placeholder="Rp 0"  name="topup"  />
 

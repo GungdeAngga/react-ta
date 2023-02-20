@@ -12,10 +12,24 @@ import { baseApi } from "../../util/API/API";
 import { useEffect } from "react";
 
 const columns = [
+    {
+    id: "sender_id",
+    label: "Sender_id",
+    minWidth: 50,
+    align: "center",
+  },
+
+  {
+    id: "receiver_id",
+    label: "Receiver_id",
+    minWidth: 50,
+    align: "center",
+  },
+
   {
     id: "amount",
     label: "Amount",
-    minWidth: 100,
+    minWidth: 70,
     align: "center",
   },
 
@@ -27,8 +41,8 @@ const columns = [
   },
 ];
 
-function createData(amount, timestamp) {
-  return { amount, timestamp };
+function createData( Sender_id, receiver_id, amount, timestamp) {
+  return { Sender_id, receiver_id, amount, timestamp };
 }
 
 export default function TableHistory() {
@@ -48,20 +62,6 @@ export default function TableHistory() {
 
   const rows = [
     createData(data),
-    // createData('Alegre', '-Rp 2000000', '19.00'),
-    // createData('Angga', '+Rp 3000000', '20.00'),
-    // createData('Ballistic', '-Rp 4000000', '08.00'),
-    // createData('Blister', '+Rp 5000000', '09.00'),
-    // createData('Bowie', '-Rp 6000000', '01.00'),
-    // createData('Cabbie', '+Rp 7000000', '02.00'),
-    // createData('Irlon', '-Rp 8000000', '03.00'),
-    // createData('Mexas', '+Rp 9000000', '04.00'),
-    // createData('Jars', '-Rp 10000000', '05.00'),
-    // createData('France', '+Rp 20000000','06.00'),
-    // createData('Desmon', '-Rp 30000000','07.00'),
-    // createData('Ivan', '+Rp 40000000', '08.00'),
-    // createData('Flack', '-Rp 50000000', '09.00'),
-    // createData('Jakku', '+Rp 60000000', '13.00'),
   ];
 
   const [page, setPage] = React.useState(0);
@@ -100,6 +100,8 @@ export default function TableHistory() {
                 const date = new Date(row.timestamp);
                 return (
                   <TableRow key={key} hover role="checkbox" tabIndex={-1}>
+                    <TableCell align={"center"}>{row.sender_id}</TableCell>
+                    <TableCell align={"center"}>{row.receiver_id}</TableCell>
                     <TableCell align={"center"}>{row.amount}</TableCell>
                     <TableCell align={"center"}>{date.toUTCString()}</TableCell>
                   </TableRow>

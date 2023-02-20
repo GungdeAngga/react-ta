@@ -35,7 +35,8 @@ const style = {
 
 export default function MainContent() {
 
-  const [home, setHome] = useState(0)
+  const [home, setHome] = useState(0);
+  const IDRConvert = Intl.NumberFormat("id-ID");
   
           useEffect(() => {
             axios
@@ -52,7 +53,7 @@ export default function MainContent() {
     <div style={style.MainContent}>
       <div style={style.Content}>
         <span style={style.text}>Account Balance</span><br />
-        <span style={style.balance}>{home.balance}</span>
+        <span style={style.balance}>{"Rp " + IDRConvert.format(home.balance)}</span>
 
         <div className='btn-group' style={{ width: "100%", }}>
           <Link to="/TopupPage" className='btn' >

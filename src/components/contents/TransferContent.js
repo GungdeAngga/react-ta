@@ -52,6 +52,7 @@ export default function TransferWeb() {
   const [transfer, setTransfer] = useState("");
   const [destination, setDestination] = useState(0);
   const [money, setMoney] = useState(0);
+  const IDRConvert = Intl.NumberFormat("id-ID");
 
   useEffect(() => {
     axios.get(baseApi + "account/4").then((res) => {
@@ -98,7 +99,7 @@ export default function TransferWeb() {
         </Box>
         <br />
 
-        <span style={style.balance}>Cash: {money}</span>
+        <span style={style.balance}>Cash: {"Rp " + IDRConvert.format(money)}</span>
         <br />
 
         <input
