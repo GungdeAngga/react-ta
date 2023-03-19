@@ -47,6 +47,7 @@ function createData( Sender_id, receiver_id, amount, timestamp) {
 
 export default function TableHistory() {
   const [data, setData] = useState();
+  const IDRConvert = Intl.NumberFormat("id-ID");
 
   useEffect(() => {
     axios
@@ -102,7 +103,7 @@ export default function TableHistory() {
                   <TableRow key={key} hover role="checkbox" tabIndex={-1}>
                     <TableCell align={"center"}>{row.sender_id}</TableCell>
                     <TableCell align={"center"}>{row.receiver_id}</TableCell>
-                    <TableCell align={"center"}>{row.amount}</TableCell>
+                    <TableCell align={"center"}>{"Rp" + IDRConvert.format(row.amount)}</TableCell>
                     <TableCell align={"center"}>{date.toUTCString()}</TableCell>
                   </TableRow>
                 );
