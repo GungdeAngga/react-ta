@@ -96,7 +96,8 @@ export default function TableHistory() {
           </TableHead>
           <TableBody>
             {data
-              ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              ?.sort((a,b)=> {return b.timestamp - a.timestamp})
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, key) => {
                 const date = new Date(row.timestamp);
                 return (

@@ -49,28 +49,41 @@ const style = {
 
 export default function TopupWeb() {
   const [topup, setTopup] = useState(0);
+  const [money, setMoney] = useState(0);
   const IDRConvert = Intl.NumberFormat("id-ID");
   
-          useEffect(() => {
-            axios
-            .get(baseApi + "account/4")
-            .then((res) => {
-              setTopup(res.data);
-            })
-            .catch((err) => {
-              console.log(err);
-            })
-          });
+  useEffect(() => {
+    axios.get(baseApi + "account/4").then((res) => {
+      setMoney(res.data.balance);
+    });
+  }, []);
+
+  const handleTopup = () => {
+    axios
+      .post(baseApi + "topup", {
+        id: 4,
+        amount: parseInt(topup),
+      })
+      .then((res) => alert("Transaksi Berhasil"))
+      .catch((err) => console.log(err));
+    };
 
   return (
     <div style={style.MainContent}>
       <div style={style.Content}>
         <span style={style.text}>Topup</span><br />
-        <span style={style.balance}>{"Rp " + IDRConvert.format(topup.balance)}</span><br /> 
+        <span style={style.balance}>{"Rp " + IDRConvert.format(money)}</span><br /> 
 
-        <input type="number" style={style.input} placeholder="Rp 0"  name="topup"  />
+        <input
+          type="number"
+          style={style.input}
+          placeholder="Rp 0"
+          value={topup}
+          name="topup"
+          onChange={(e) => setTopup(e.target.value)}
+        />
 
-        <button style={style.button} type='submit'>TOPUP</button>
+        <button style={style.button} onClick={handleTopup}>TOPUP</button>
       </div>
     </div>
   )
