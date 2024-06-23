@@ -41,9 +41,9 @@ const columns = [
   },
 ];
 
-function createData( Sender_id, receiver_id, amount, timestamp) {
-  return { Sender_id, receiver_id, amount, timestamp };
-}
+// function createData( Sender_id, receiver_id, amount, timestamp) {
+//   return { Sender_id, receiver_id, amount, timestamp };
+// }
 
 export default function TableHistory() {
   const [data, setData] = useState();
@@ -61,9 +61,9 @@ export default function TableHistory() {
       });
   }, []);
 
-  const rows = [
-    createData(data),
-  ];
+  // const rows = [
+  //   createData(data),
+  // ];
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
