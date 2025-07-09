@@ -1,14 +1,14 @@
 import React from 'react'
-import MainContentWeb from '../components/contents/MainContentWeb'
+import WithdrawWeb from '../components/contents/WithdrawWeb'
 import FooterWeb from '../components/Footer/FooterWeb'
 import HeaderWeb from '../components/HeaderWeb'
 
-export default function HomePage() {
+export default function WithdrawPage() {
   return (
     <div>
-    <HeaderWeb/>
-    <MainContentWeb/>
-    <FooterWeb/>
+        <HeaderWeb/>
+        <WithdrawWeb/>
+        <FooterWeb/>
     </div>
   )
 }

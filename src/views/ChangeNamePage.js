@@ -1,14 +1,14 @@
 import React from 'react'
-import MainContentWeb from '../components/contents/MainContentWeb'
+import ChangNameWeb from '../components/ChangNameWeb'
 import FooterWeb from '../components/Footer/FooterWeb'
 import HeaderWeb from '../components/HeaderWeb'
 
-export default function HomePage() {
+export default function ChangeNamePage() {
   return (
     <div>
-    <HeaderWeb/>
-    <MainContentWeb/>
-    <FooterWeb/>
+        <HeaderWeb/>
+        <ChangNameWeb/>
+        <FooterWeb/>
     </div>
   )
 }

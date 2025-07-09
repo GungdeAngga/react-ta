@@ -1,14 +1,14 @@
 import React from 'react'
-import MainContentWeb from '../components/contents/MainContentWeb'
 import FooterWeb from '../components/Footer/FooterWeb'
 import HeaderWeb from '../components/HeaderWeb'
+import HistoryWeb from '../components/HistoryWeb'
 
-export default function HomePage() {
+export default function HistoryPage() {
   return (
     <div>
-    <HeaderWeb/>
-    <MainContentWeb/>
-    <FooterWeb/>
+        <HeaderWeb />
+        <HistoryWeb />
+        <FooterWeb />
     </div>
   )
 }
