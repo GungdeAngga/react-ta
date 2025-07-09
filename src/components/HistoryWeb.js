@@ -27,21 +27,6 @@ const style = {
 
 export default function HistoryWeb() {
 
-  // const [data, setData] = useState;
-
-  // const tableBlockchain = [
-    
-      // axios
-      // .get(baseApi + "blockchain")
-      // .then((res) => {
-      //   console.log(res);
-      // })
-      // .catch((err) => {
-      //   console.log(err);
-      // })
-   
-  // ];
-
    
   return (
     <div style={style.MainContent}>

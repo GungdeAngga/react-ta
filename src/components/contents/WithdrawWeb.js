@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-import "../../App.css"
-import { baseApi } from '../../util/API/API'
-import axios from 'axios'
-import { useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import "../../App.css";
+import { baseApi } from "../../util/API/API";
 
 const style = {
   MainContent: {
@@ -45,34 +43,56 @@ const style = {
     borderRadius: "5px",
     cursor: "pointer",
   },
-}
+};
 
 export default function WithdrawWeb() {
-
-  const [withdraw, setWithdraw] = useState(0);
+  const [withdrawAmount, setWithdrawAmount] = useState(0);
+  const [balance, setBalance] = useState(0);
   const IDRConvert = Intl.NumberFormat("id-ID");
-  
-          useEffect(() => {
-            axios
-            .get(baseApi + "account/4")
-            .then((res) => {
-              setWithdraw(res.data);
-            })
-            .catch((err) => {
-              console.log(err);
-            })
-          });
+
+  useEffect(() => {
+    fetch(baseApi + "account/4")
+      .then((res) => res.json())
+      .then((data) => setBalance(data.balance))
+      .catch((err) => console.error(err));
+  }, []);
+
+  const handleWithdraw = () => {
+    fetch(baseApi + "withdraw", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: 4,
+        amount: parseInt(withdrawAmount),
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Withdraw failed");
+        return res.json();
+      })
+      .then(() => alert("Withdraw berhasil"))
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div style={style.MainContent}>
       <div style={style.Content}>
-        <span style={style.text}>Withdraw</span><br />
-        <span style={style.balance}>{"Rp " + IDRConvert.format(withdraw.balance)}</span><br />
-
-        <input type="number" style={style.input} placeholder="Rp 0" value={withdraw} name="withdraw" onChange={(e) => setWithdraw(e.target.value)} />
-
-        <button style={style.button} type='submit'>WITHDRAW</button>
+        <span style={style.text}>Withdraw</span>
+        <br />
+        <span style={style.balance}>{"Rp " + IDRConvert.format(balance)}</span>
+        <br />
+        <input
+          type="number"
+          style={style.input}
+          placeholder="Rp 0"
+          value={withdrawAmount}
+          name="withdraw"
+          onChange={(e) => setWithdrawAmount(e.target.value)}
+        />
+        <button style={style.button} type="submit" onClick={handleWithdraw}>
+          WITHDRAW
+        </button>
       </div>
     </div>
-  )
+  );
 }

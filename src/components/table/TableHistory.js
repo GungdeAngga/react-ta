@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -7,70 +7,30 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import axios from "axios";
 import { baseApi } from "../../util/API/API";
-import { useEffect } from "react";
 
 const columns = [
-    {
-    id: "sender_id",
-    label: "Sender_id",
-    minWidth: 50,
-    align: "center",
-  },
-
-  {
-    id: "receiver_id",
-    label: "Receiver_id",
-    minWidth: 50,
-    align: "center",
-  },
-
-  {
-    id: "amount",
-    label: "Amount",
-    minWidth: 70,
-    align: "center",
-  },
-
-  {
-    id: "time",
-    label: "Time",
-    minWidth: 100,
-    align: "center",
-  },
+  { id: "sender_id", label: "Sender_id", minWidth: 50, align: "center" },
+  { id: "receiver_id", label: "Receiver_id", minWidth: 50, align: "center" },
+  { id: "amount", label: "Amount", minWidth: 70, align: "center" },
+  { id: "time", label: "Time", minWidth: 100, align: "center" },
 ];
 
-// function createData( Sender_id, receiver_id, amount, timestamp) {
-//   return { Sender_id, receiver_id, amount, timestamp };
-// }
-
 export default function TableHistory() {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const IDRConvert = Intl.NumberFormat("id-ID");
 
   useEffect(() => {
-    axios
-      .get(baseApi + "blockchain")
-      .then((res) => {
-        console.log(res);
-        setData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    fetch(baseApi + "blockchain")
+      .then((res) => res.json())
+      .then((json) => setData(json))
+      .catch((err) => console.error(err));
   }, []);
 
-  // const rows = [
-  //   createData(data),
-  // ];
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
+  const handleChangePage = (event, newPage) => setPage(newPage);
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
@@ -96,16 +56,18 @@ export default function TableHistory() {
           </TableHead>
           <TableBody>
             {data
-              ?.sort((a,b)=> {return b.timestamp - a.timestamp})
+              ?.sort((a, b) => b.timestamp - a.timestamp)
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, key) => {
                 const date = new Date(row.timestamp);
                 return (
                   <TableRow key={key} hover role="checkbox" tabIndex={-1}>
-                    <TableCell align={"center"}>{row.sender_id}</TableCell>
-                    <TableCell align={"center"}>{row.receiver_id}</TableCell>
-                    <TableCell align={"center"}>{"Rp" + IDRConvert.format(row.amount)}</TableCell>
-                    <TableCell align={"center"}>{date.toUTCString()}</TableCell>
+                    <TableCell align="center">{row.sender_id}</TableCell>
+                    <TableCell align="center">{row.receiver_id}</TableCell>
+                    <TableCell align="center">
+                      {"Rp" + IDRConvert.format(row.amount)}
+                    </TableCell>
+                    <TableCell align="center">{date.toUTCString()}</TableCell>
                   </TableRow>
                 );
               })}
@@ -115,7 +77,7 @@ export default function TableHistory() {
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={data?.length}
+        count={data?.length || 0}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

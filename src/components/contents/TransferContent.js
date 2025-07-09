@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../../App.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import axios from "axios";
 import { baseApi } from "../../util/API/API";
 
 const style = {
@@ -55,9 +54,10 @@ export default function TransferWeb() {
   const IDRConvert = Intl.NumberFormat("id-ID");
 
   useEffect(() => {
-    axios.get(baseApi + "account/4").then((res) => {
-      setMoney(res.data.balance);
-    });
+    fetch(baseApi + "account/4")
+      .then((res) => res.json())
+      .then((data) => setMoney(data.balance))
+      .catch((err) => console.error(err));
   }, []);
 
   const handleTransfer = () => {
@@ -65,21 +65,29 @@ export default function TransferWeb() {
       alert("masukan tujuan ID");
       return;
     }
-    axios
-      .post(baseApi + "transfer", {
+
+    fetch(baseApi + "transfer", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
         from: 4,
         to: parseInt(destination),
         amount: parseInt(transfer),
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Transfer failed");
+        return res.json();
       })
-      .then((res) => alert("Transaksi Berhasil"))
-      .catch((err) => console.log(err));
+      .then(() => alert("Transaksi Berhasil"))
+      .catch((err) => console.error(err));
   };
+
   return (
     <div style={style.MainContent}>
       <div style={style.Content}>
         <span style={style.text}>Transfer</span>
         <br />
-
         <Box
           component="form"
           sx={{
@@ -98,10 +106,8 @@ export default function TransferWeb() {
           />
         </Box>
         <br />
-
         <span style={style.balance}>Cash: {"Rp " + IDRConvert.format(money)}</span>
         <br />
-
         <input
           type="number"
           style={style.input}
@@ -110,7 +116,6 @@ export default function TransferWeb() {
           name="transfer"
           onChange={(e) => setTransfer(e.target.value)}
         />
-
         <button style={style.button} onClick={handleTransfer}>
           TRANSFER
         </button>

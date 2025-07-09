@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "../../App.css"
 import { baseApi } from '../../util/API/API'
-import axios from 'axios'
-import { useEffect } from 'react';
 
 const style = {
   MainContent: {
@@ -51,28 +49,38 @@ export default function TopupWeb() {
   const [topup, setTopup] = useState(0);
   const [money, setMoney] = useState(0);
   const IDRConvert = Intl.NumberFormat("id-ID");
-  
+
   useEffect(() => {
-    axios.get(baseApi + "account/4").then((res) => {
-      setMoney(res.data.balance);
-    });
+    fetch(baseApi + "account/4")
+      .then((res) => res.json())
+      .then((data) => setMoney(data.balance))
+      .catch((err) => console.error(err));
   }, []);
 
   const handleTopup = () => {
-    axios
-      .post(baseApi + "topup", {
+    fetch(baseApi + "topup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
         id: 4,
         amount: parseInt(topup),
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Topup failed");
+        return res.json();
       })
-      .then((res) => alert("Transaksi Berhasil"))
-      .catch((err) => console.log(err));
-    };
+      .then(() => alert("Transaksi Berhasil"))
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div style={style.MainContent}>
       <div style={style.Content}>
         <span style={style.text}>Topup</span><br />
-        <span style={style.balance}>{"Rp " + IDRConvert.format(money)}</span><br /> 
+        <span style={style.balance}>{"Rp " + IDRConvert.format(money)}</span><br />
 
         <input
           type="number"
@@ -86,5 +94,5 @@ export default function TopupWeb() {
         <button style={style.button} onClick={handleTopup}>TOPUP</button>
       </div>
     </div>
-  )
+  );
 }
