@@ -21,7 +21,7 @@ export default function TableHistory() {
   const IDRConvert = Intl.NumberFormat("id-ID");
 
   useEffect(() => {
-    fetch(baseApi + "blockchain")
+    fetch(baseApi() + "blockchain")
       .then((res) => res.json())
       .then((json) => setData(json))
       .catch((err) => console.error(err));

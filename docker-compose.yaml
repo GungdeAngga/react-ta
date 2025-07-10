@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  webapp-wallet:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_BACKEND_URL: http://go-app:8080
+    image: corsair-wallet
+    ports:
+      - "3000:80"
+    restart: unless-stopped

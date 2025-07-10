@@ -43,3 +43,12 @@
     -->
   </body>
 </html>
+
+<script>
+  window.REACT_APP_BACKEND_URL = "/api"; // fallback
+  fetch('/config/config.json')
+    .then(res => res.json())
+    .then(cfg => {
+      window.REACT_APP_BACKEND_URL = cfg.REACT_APP_BACKEND_URL;
+    });
+</script>

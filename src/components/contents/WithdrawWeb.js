@@ -51,14 +51,14 @@ export default function WithdrawWeb() {
   const IDRConvert = Intl.NumberFormat("id-ID");
 
   useEffect(() => {
-    fetch(baseApi + "account/4")
+    fetch(baseApi() + "account/4")
       .then((res) => res.json())
       .then((data) => setBalance(data.balance))
       .catch((err) => console.error(err));
   }, []);
 
   const handleWithdraw = () => {
-    fetch(baseApi + "withdraw", {
+    fetch(baseApi() + "withdraw", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

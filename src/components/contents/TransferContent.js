@@ -54,7 +54,7 @@ export default function TransferWeb() {
   const IDRConvert = Intl.NumberFormat("id-ID");
 
   useEffect(() => {
-    fetch(baseApi + "account/4")
+    fetch(baseApi() + "account/4")
       .then((res) => res.json())
       .then((data) => setMoney(data.balance))
       .catch((err) => console.error(err));
@@ -66,7 +66,7 @@ export default function TransferWeb() {
       return;
     }
 
-    fetch(baseApi + "transfer", {
+    fetch(baseApi() + "transfer", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

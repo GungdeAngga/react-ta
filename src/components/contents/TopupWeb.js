@@ -51,14 +51,14 @@ export default function TopupWeb() {
   const IDRConvert = Intl.NumberFormat("id-ID");
 
   useEffect(() => {
-    fetch(baseApi + "account/4")
+    fetch(baseApi() + "account/4")
       .then((res) => res.json())
       .then((data) => setMoney(data.balance))
       .catch((err) => console.error(err));
   }, []);
 
   const handleTopup = () => {
-    fetch(baseApi + "topup", {
+    fetch(baseApi() + "topup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

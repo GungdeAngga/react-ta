@@ -36,7 +36,7 @@ export default function MainContent() {
   const IDRConvert = Intl.NumberFormat("id-ID");
 
   useEffect(() => {
-    fetch(baseApi + "account/4")
+    fetch(baseApi() + "account/4")
       .then((res) => res.json())
       .then((data) => setHome(data))
       .catch((err) => console.error(err));
